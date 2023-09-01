@@ -8,6 +8,7 @@ function ImagenPage() {
 
   const handleChange = (e) => {
     setFile(e.target.files[0]);
+    console.log(process.env.BASE_URL);
   };
 
   const handleSubmit = async (e) => {
@@ -15,7 +16,7 @@ function ImagenPage() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const response = await fetch(process.env.BASE_URL+"/api/upload", {
+    const response = await fetch(process.env.BASE_URL + "/api/upload", {
       method: "POST",
       body: formData,
     });
